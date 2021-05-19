@@ -83,7 +83,11 @@ visited = {}
 for key in IPA_dict.keys():
     visited[key] = 0
 
-for lang in ['es', 'fr', 'it', 'zh']:
+well_lang = ['es', 'it', 'fr', 'ru', ]
+low_lang = ['ky', 'nl', 'sv', 'tr', 'tt','zh']
+i = 0
+
+for lang in well_lang:
     dict_path = '../common_voices_splits/'+lang+'/phonesMatches_reduced.json'
     with open(dict_path) as f:
         IPA_dict_new = json.load(f)
@@ -92,9 +96,9 @@ for lang in ['es', 'fr', 'it', 'zh']:
             i += 1
             visited[key] = 1
 
-print('es, it, fr contain '+ str(i) + ' IPAs')
+print('well languages contain '+ str(i) + ' IPAs')
 
-for lang in ['ky', 'nl', 'ru', 'sv', 'tr', 'tt']:
+for lang in low_lang:
     unseen = 0
     dict_path = '../common_voices_splits/'+lang+'/phonesMatches_reduced.json'
     with open(dict_path) as f:
